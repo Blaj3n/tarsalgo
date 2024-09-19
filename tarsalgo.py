@@ -71,3 +71,21 @@ for szemely in bent_kint:
 
 print("\n")
 
+print("5. feladat ")
+
+jelenleg = []
+mennyiseg = 0
+for szemely in ajto:
+    if szemely[3] == "be":
+        mennyiseg += 1
+        jelenleg.append(mennyiseg)
+    elif szemely[3] == "ki":
+        mennyiseg -= 1
+        jelenleg.append(mennyiseg)
+print(jelenleg)
+
+legnagyobb_letszam = max(jelenleg)  # 12
+legnagyobb_indexe = jelenleg.index(legnagyobb_letszam)  # a legnagyobb_letszam indexét keressük a jelenleg nevű listában
+print(legnagyobb_indexe)    # 143
+
+print(f"Például {ajto[legnagyobb_indexe][0]}:{ajto[legnagyobb_indexe][1]}-kor voltak a legtöbben a társalgóban.")
