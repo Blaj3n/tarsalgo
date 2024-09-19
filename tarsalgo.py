@@ -33,7 +33,7 @@ szemelyek = []
 for szemely in ajto:
     if szemely[2] not in szemelyek:
         szemelyek.append(szemely[2])
-print(sorted(szemelyek))    # lista rendezés növekvő sorrendbe (asc)
+# print(sorted(szemelyek))    # azonosítók lista rendezés növekvő sorrendbe (asc)
 
 with open("athaladas.txt", "w", encoding="utf-8") as fajl:
     for egyelem in sorted(szemelyek):
@@ -43,6 +43,31 @@ with open("athaladas.txt", "w", encoding="utf-8") as fajl:
                 szamlalo += 1
         fajl.write(f"{egyelem} {szamlalo}\n")
 
-# for valtozo in range(5): # [1, 5[ # range(kezdő, meddig menjen -1, hányasával), range(meddig menjen 0-tól - 1) range(5) = [0, 1, 2, 3, 4], range(2, 7) = [2, 3, 4, 5, 6], range(1, 5, 2) = [1, 3]
+szemelyek_novekvo = sorted(szemelyek)
+
+# for valtozo in range(5): # [1, 5[ # range(kezdő, meddig menjen -1, hányasával),
+# range(meddig menjen 0-tól - 1) range(5) = [0, 1, 2, 3, 4], range(2, 7) = [2, 3, 4, 5, 6], range(1, 5, 2) = [1, 3]
 
 # HF: 4. feladat lista *
+print("")
+print("4. feladat")
+
+# bent_kint = [[1, be, ki, be, ki, be], [2, be, ki, be, ki], ..., [41, be, ki, be]]
+# Azt kell tudni, hogy minden egyes belépéshez tartoznia kell egy kilépésnek. De mi pont nem ezt keressük, hanem ha több belépés van (biztos 1-gyel), akkor írjuk ki az bent_kint[i] az egyelem[0].
+
+bent_kint = []
+for szemely in szemelyek_novekvo:   # szemely = 1
+    szemelyek = [szemely]   # szemelyek = [szemely] --> szemelyek.append(szemely)
+    for egyelem in ajto:
+        if egyelem[2] == szemely:       #   HA azonosító = 1
+            szemelyek.append(egyelem[3])    # szemelyek = [be, ki, be, ki, be]
+    bent_kint.append(szemelyek)             # bent_kint = [[1, be, ki, be, ki, be]]
+# print(bent_kint)    # [[szemely_azonosito, belépett, kilépett, belépett, kilépett, belépett]]
+
+print(f"A végén a társalgóban voltak:", end=" ")
+for szemely in bent_kint:
+    if szemely.count("be") != szemely.count("ki"):
+        print(szemely[0], end=" ")
+
+print("\n")
+
