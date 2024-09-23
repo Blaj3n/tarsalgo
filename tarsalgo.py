@@ -95,16 +95,16 @@ print("")
 
 print("6. feladat")
 
-szemely_azonosito = input("Adja meg a személy azonosítóját! ")
+szemely_azonosito = int(input("Adja meg a személy azonosítóját! "))
 
 print("")
 
 print("7. feladat")
 
 for szemely in ajto:
-    if str(szemely_azonosito) == str(szemely[2]) and szemely[3] == "be":
+    if szemely_azonosito == szemely[2] and szemely[3] == "be":
         szemely_be = f"{szemely[0]}:{szemely[1]}"
         print(f"{szemely_be}-", end="")
-    elif str(szemely_azonosito) == str(szemely[2]) and szemely[3] == "ki":
+    elif szemely_azonosito == szemely[2] and szemely[3] == "ki":
         szemely_ki = f"{szemely[0]}:{szemely[1]}"
         print(f"{szemely_ki}")
