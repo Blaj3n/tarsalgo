@@ -53,13 +53,14 @@ print("")
 print("4. feladat")
 
 # bent_kint = [[1, be, ki, be, ki, be], [2, be, ki, be, ki], ..., [41, be, ki, be]]
-# Azt kell tudni, hogy minden egyes belépéshez tartoznia kell egy kilépésnek. De mi pont nem ezt keressük, hanem ha több belépés van (biztos 1-gyel), akkor írjuk ki az bent_kint[i] az egyelem[0].
+# Azt kell tudni, hogy minden egyes belépéshez tartoznia kell egy kilépésnek. De mi pont nem ezt keressük,
+# hanem ha több belépés van (biztos 1-gyel), akkor írjuk ki az bent_kint[i] az egyelem[0].
 
 bent_kint = []
 for szemely in szemelyek_novekvo:   # szemely = 1
     szemelyek = [szemely]   # szemelyek = [szemely] --> szemelyek.append(szemely)
     for egyelem in ajto:
-        if egyelem[2] == szemely:       #   HA azonosító = 1
+        if egyelem[2] == szemely:           # HA azonosító = 1
             szemelyek.append(egyelem[3])    # szemelyek = [be, ki, be, ki, be]
     bent_kint.append(szemelyek)             # bent_kint = [[1, be, ki, be, ki, be]]
 # print(bent_kint)    # [[szemely_azonosito, belépett, kilépett, belépett, kilépett, belépett]]
@@ -90,21 +91,20 @@ legnagyobb_indexe = jelenleg.index(legnagyobb_letszam)  # a legnagyobb_letszam i
 
 print(f"Például {ajto[legnagyobb_indexe][0]}:{ajto[legnagyobb_indexe][1]}-kor voltak a legtöbben a társalgóban.")
 
-print("\n")
+print("")
 
 print("6. feladat")
 
 szemely_azonosito = input("Adja meg a személy azonosítóját! ")
 
-print("\n")
+print("")
 
-# A feladat alapjáraton készen van, csak a végén amikor csak belépés van kilépés nincs azt az 1 időpontot nem tudom kiiratni
 print("7. feladat")
 
 for szemely in ajto:
     if str(szemely_azonosito) == str(szemely[2]) and szemely[3] == "be":
         szemely_be = f"{szemely[0]}:{szemely[1]}"
-        # print(szemely_be)
+        print(f"{szemely_be}-", end="")
     elif str(szemely_azonosito) == str(szemely[2]) and szemely[3] == "ki":
         szemely_ki = f"{szemely[0]}:{szemely[1]}"
-        print(f"{szemely_be}-{szemely_ki}")
+        print(f"{szemely_ki}")
