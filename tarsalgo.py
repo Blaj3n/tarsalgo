@@ -95,3 +95,16 @@ print("\n")
 print("6. feladat")
 
 szemely_azonosito = input("Adja meg a személy azonosítóját! ")
+
+print("\n")
+
+# A feladat alapjáraton készen van, csak a végén amikor csak belépés van kilépés nincs azt az 1 időpontot nem tudom kiiratni
+print("7. feladat")
+
+for szemely in ajto:
+    if str(szemely_azonosito) == str(szemely[2]) and szemely[3] == "be":
+        szemely_be = f"{szemely[0]}:{szemely[1]}"
+        # print(szemely_be)
+    elif str(szemely_azonosito) == str(szemely[2]) and szemely[3] == "ki":
+        szemely_ki = f"{szemely[0]}:{szemely[1]}"
+        print(f"{szemely_be}-{szemely_ki}")
