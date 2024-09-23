@@ -82,10 +82,16 @@ for szemely in ajto:
     elif szemely[3] == "ki":
         mennyiseg -= 1
         jelenleg.append(mennyiseg)
-print(jelenleg)
+# print(jelenleg)     # az adott időben hányan tartózkodnak a helyiségben
 
 legnagyobb_letszam = max(jelenleg)  # 12
 legnagyobb_indexe = jelenleg.index(legnagyobb_letszam)  # a legnagyobb_letszam indexét keressük a jelenleg nevű listában
-print(legnagyobb_indexe)    # 143
+# print(legnagyobb_indexe)    # 143
 
 print(f"Például {ajto[legnagyobb_indexe][0]}:{ajto[legnagyobb_indexe][1]}-kor voltak a legtöbben a társalgóban.")
+
+print("\n")
+
+print("6. feladat")
+
+szemely_azonosito = input("Adja meg a személy azonosítóját! ")
