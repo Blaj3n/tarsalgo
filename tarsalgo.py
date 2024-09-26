@@ -6,7 +6,7 @@ with open("ajto.txt", "r", encoding="utf-8") as file:
     for egysor in file:
         egysor = egysor.strip().split()
         ajto.append([int(egysor[0]), int(egysor[1]), int(egysor[2]), str(egysor[3])])
-print(ajto)
+# print(ajto)
 
 print("2. feladat")
 
@@ -114,8 +114,45 @@ print("\n")
 
 print("8. feladat")
 
+
 def ido(ora: int, perc: int):
     ido_percben = (ora*60) + perc
     return ido_percben
 
 
+percek_be = []
+percek_ki = []
+vizsgalat_vege = ido(15, 00)
+
+for szemely in ajto:
+    if szemely[2] == szemely_azonosito and szemely[3] == "be":
+        percek_be.append(ido(szemely[0], szemely[1]))
+# print("Percek be:")
+# print(percek_be)
+
+for szemely in ajto:
+    if szemely[2] == szemely_azonosito and szemely[3] == "ki":
+        percek_ki.append(ido(szemely[0], szemely[1]))
+# print("Percek ki:")
+# print(percek_ki)
+
+# 5, 2, 5, 3 = 15 + 3 = 18 --> mert 14:57-kor lépett be, és a vizsgálat 15:00-ig tartott.
+
+kint_van = True     # igaz, hogy kint_van: Kint tartózkodik.
+if len(percek_be) != len(percek_ki):
+    kint_van = False    # nem igaz, hogy kint_van: Bent tartózkodik.
+    percek_ki.append(vizsgalat_vege)
+
+# print(percek_ki)
+
+ossz_perc = 0
+for i in range(0, len(percek_be)):
+    ossz_perc += percek_ki[i] - percek_be[i]
+# print(ossz_perc)
+
+if kint_van:    # kint_van == igaz
+    print(f"A(z) {szemely_azonosito}. személy összesen {ossz_perc} percet volt bent, a megfigyelés végén"
+          f"nincs a társalgóban.")
+elif not kint_van:  # nincsen kinn, tehát benn van. Hamis hogy kint van, ezért benn vagy.
+    print(f"A(z) {szemely_azonosito}. személy összesen {ossz_perc} percet volt bent, a megfigyelés végén"
+          f"a társalgóban volt.")
