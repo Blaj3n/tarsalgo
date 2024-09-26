@@ -108,3 +108,14 @@ for szemely in ajto:
     elif szemely_azonosito == szemely[2] and szemely[3] == "ki":
         szemely_ki = f"{szemely[0]}:{szemely[1]}"
         print(f"{szemely_ki}")
+
+print("\n")
+
+
+print("8. feladat")
+
+def ido(ora: int, perc: int):
+    ido_percben = (ora*60) + perc
+    return ido_percben
+
+
